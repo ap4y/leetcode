@@ -1,0 +1,20 @@
+* Notes
+
+** List operations
+
+- Can use hash to do o(n) cross-match
+
+- Can use sliding-window (potentially with hash) for longest combination search
+
+** Linked lists
+
+- Recursion works really well
+
+** Median
+
+- The median is the value separating the higher half from the lower half of a data sample:
+  (arr[(len - 1) / 2] + arr[len / 2]) / 2.0
+** Palindrome
+
+- Can be found by expanding window from the center
+- Have to check twice for 1 (abac) and 2 (abbac) letter combinations
