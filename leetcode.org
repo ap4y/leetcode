@@ -18,3 +18,6 @@
 
 - Can be found by expanding window from the center
 - Have to check twice for 1 (abac) and 2 (abbac) letter combinations
+** Number operations
+
+- Use pop: ~num % 2; num / 10~ and push ~num * 10 + mod~
