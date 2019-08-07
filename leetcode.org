@@ -2,22 +2,122 @@
 
 ** List operations
 
-- Can use hash to do o(n) cross-match
+- Use hash to do o(n) cross-match
 
-- Can use sliding-window (potentially with hash) for longest combination search
+- Use sliding-window (potentially with hash) for longest combination search
+
+- Use 2-pointer search on sorted array for fast pair operations. Skip dups if possible
+
+- Use binary search (mid element) for fast search on sorted array
 
 ** Linked lists
 
 - Recursion works really well
+- Item at index removal single pass via 2 pointers (leetcode19) by scrolling and re-assigning pointer.
 
 ** Median
 
 - The median is the value separating the higher half from the lower half of a data sample:
   (arr[(len - 1) / 2] + arr[len / 2]) / 2.0
+
 ** Palindrome
 
 - Can be found by expanding window from the center
 - Have to check twice for 1 (abac) and 2 (abbac) letter combinations
+
 ** Number operations
 
 - Use pop: ~num % 2; num / 10~ and push ~num * 10 + mod~
+** Parenthesis
+
+- Can be matched via stack
+- Generate via recursion by doing it twice from left and right (leetcode22)
+
+** Bitwise operations
+
+Shift operator:
+<< 1 is to multiply 2, e.g. 2 << 1 = 4
+>> 1 is to divide 2, e.g. 8 >> 1 = 4
+
+Any number can be represented by:
+num = a[0]*2^0 +a[1]*2^1 + a[2]*2^2 + … + a[n]*2^n.
+
+To divide numbers:
+
+1. Remove signs and handle edge cases
+2. Find longest shift (maximum power of 2) while num1 >= num2 << bits (same as num1 >= num2 * 2^pow)
+3. Subtract shifted amount: num1 -= num2 << (bits - 1) (same as num -= num2 * 2^(pow - 1))
+4. Shift 1 for the same amount and add to result: result += 1 << (bits - 1) (same as result += 2 ^ (pow - 1))
+5. Continue until reminder (num1) is higher or equal to divisor
+6. Restore multiplier and return result
+
+** Regex
+
+- Wildcard matching can be done via recursion (leetcode10): check 
+  str ~= pattern[2:] (i.e. same string with omitted wildcard) and 
+  str[1:] ~= pattern (the rest of the string with the same pattern)
+
+** Area related operations
+
+- Try to do 2 pointer loop and ~height[left] < height[right] ? left += 1 : right += 1~
+
+** Permutations
+
+- Can be solved recursively:
+
+# 1             2             3
+# 1,2    1,3    2,1    2,3    3,1    3,2
+# 1,2,3  1,3,2  2,1,3  2,3,1  3,1,2  3,2,1
+
+** Math operations
+- Pow can be found via polynome by calculating n / 2 power recursively (leetcode50)
+
+* Algorithms
+
+** Hashmap
+
+A hash table uses a hash function to compute an index into an array of
+buckets or slots, from which the desired value can be found.
+
+Ideally, the hash function will assign each key to a unique bucket,
+but most hash table designs employ an imperfect hash function, which
+might cause hash collisions where the hash function generates the same
+index for more than one key.
+
+In many situations, hash tables turn out to be on average more
+efficient than search trees or any other table lookup structure.
+
+*** Collision resolution
+
+**** Separate chaining
+
+In the method known as separate chaining, each bucket is independent,
+and has some sort of list of entries with the same index. The time for
+hash table operations is the time to find the bucket (which is
+constant) plus the time for the list operation.
+
+**** Open addressing
+
+all entry records are stored in the bucket array itself. When a new
+entry has to be inserted, the buckets are examined, starting with the
+hashed-to slot and proceeding in some probe sequence, until an
+unoccupied slot is found. When searching for an entry, the buckets are
+scanned in the same sequence, until either the target record is found,
+or an unused array slot is found, which indicates that there is no
+such key in the table.
+
+*** Drawbacks
+
+- Although operations on a hash table take constant time on average,
+  the cost of a good hash function can be significantly higher than
+  the inner loop of the lookup algorithm for a sequential list or
+  search tree.
+
+- The entries stored in a hash table can be enumerated efficiently (at
+  constant cost per entry), but only in some pseudo-random order.
+
+- Although the average cost per operation is constant and fairly
+  small, the cost of a single operation may be quite high (for dynamic
+  hash tables).
+
+- Hash tables in general exhibit poor locality of reference.
