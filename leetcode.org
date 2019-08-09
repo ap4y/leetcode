@@ -60,6 +60,7 @@ To divide numbers:
 ** Area related operations
 
 - Try to do 2 pointer loop and ~height[left] < height[right] ? left += 1 : right += 1~
+- Adjacent bars simplify search (i.e. min/max area, leetcode 84): expand each bar to the sides and get area.
 
 ** Permutations
 
