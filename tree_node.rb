@@ -23,4 +23,18 @@ class TreeNode
     end
     root
   end
+
+  def to_a
+    acc, stack = [], [self]
+    while stack.size > 0
+      stack.pop(stack.size).each do |node|
+        acc << node&.val
+        if node&.left || node&.right
+          stack << node&.left
+          stack << node&.right
+        end
+      end
+    end
+    acc.last.nil? ? acc[0..-2] : acc
+  end
 end
