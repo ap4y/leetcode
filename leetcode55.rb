@@ -32,9 +32,9 @@ end
 
 class LeetcodeTest < Minitest::Test
   def test_can_jump
-    # assert(can_jump([0]))
-    # assert(can_jump([2, 0]))
-    # assert(can_jump([2, 3, 1, 1, 4]))
+    assert(can_jump([0]))
+    assert(can_jump([2, 0]))
+    assert(can_jump([2, 3, 1, 1, 4]))
     refute(can_jump([3, 2, 1, 0, 4]))
   end
 end

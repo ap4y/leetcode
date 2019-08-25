@@ -51,29 +51,29 @@ class LeetcodeTest < Minitest::Test
       )
         .to_a
     )
-    # assert_equal(
-    #   [1, 1, 2, 3, 4, 4, 5, 6],
-    #   merge_k_lists(
-    #     [
-    #       ListNode.from_a([1, 4, 5]),
-    #       ListNode.from_a([1, 3, 4]),
-    #       ListNode.from_a([2, 6])
-    #     ]
-    #   )
-    #     .to_a
-    # )
+    assert_equal(
+      [1, 1, 2, 3, 4, 4, 5, 6],
+      merge_k_lists(
+        [
+          ListNode.from_a([1, 4, 5]),
+          ListNode.from_a([1, 3, 4]),
+          ListNode.from_a([2, 6])
+        ]
+      )
+        .to_a
+    )
 
-    # assert_equal([], merge_k_lists([]).to_a)
-    # assert_equal(
-    #   [1, 1, 2, 3, 4, 4, 5],
-    #   merge_k_lists(
-    #     [
-    #       ListNode.from_a([1, 4, 5]),
-    #       ListNode.from_a([1, 3, 4]),
-    #       ListNode.new(2)
-    #     ]
-    #   )
-    #     .to_a
-    # )
+    assert_equal([], merge_k_lists([]).to_a)
+    assert_equal(
+      [1, 1, 2, 3, 4, 4, 5],
+      merge_k_lists(
+        [
+          ListNode.from_a([1, 4, 5]),
+          ListNode.from_a([1, 3, 4]),
+          ListNode.new(2)
+        ]
+      )
+        .to_a
+    )
   end
 end
